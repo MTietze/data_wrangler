@@ -21,6 +21,7 @@ If tox complains about missing py38, you may need to run it as `tox -e /path/to/
 
 ### Running Data Wrangler as a Standalone
 Create a YAML file at data_wrangler/local_config.yaml. See for below syntax. 
+See tests/fixtures/test_config.yaml for an example.
 
 Activate the virtualenv that tox created:
 
