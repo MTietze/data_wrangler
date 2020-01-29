@@ -1,4 +1,4 @@
-###Next Steps
+### Next Steps
 * Establish what "a very large number of rows" might be and load/performance test this
 * Evaluate if I should scrap this project and use an existing ETL tool
 * Package and version this and host in on a repo so that other projects can pull it in as a dependency

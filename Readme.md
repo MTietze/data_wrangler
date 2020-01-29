@@ -9,7 +9,7 @@ Install tox globally:
 `pip install tox`
 
 
-###Running the tests
+### Running the tests
 
 Tox handles setting up a virtual environment, installing dependencies, and running tests.
 
@@ -19,7 +19,7 @@ From within the data_wrangler directory, run
 
 If tox complains about missing py38, you may need to run it as `tox -e /path/to/python38`
 
-###Running Data Wrangler as a Standalone
+### Running Data Wrangler as a Standalone
 Create a YAML file at data_wrangler/local_config.yaml. See for below syntax. 
 
 Activate the virtualenv that tox created:
@@ -28,7 +28,7 @@ Activate the virtualenv that tox created:
 
 run `python ./wrangler.py local_config.yaml`
 
-###YAML Configuration
+### YAML Configuration
  All keys are required unless marked (O)
  
  See tests/fixtures/test_config.yaml for an example
@@ -39,26 +39,26 @@ run `python ./wrangler.py local_config.yaml`
  * output_path: absolute_or_relative/path/to/output.csv (must have write permission)   
  * columns: list of columns
  
- ####Columns
+ #### Columns
  Each column config represents a column in the generated csv file. They will appear in the same order as in the columns list.
- #####CAUTION: "__row_number" is a protected column name, and should not be used as an input or output key.
+ ##### CAUTION: "__row_number" is a protected column name, and should not be used as an input or output key.
 * output_key: Output column header
 * input_key (O): Input column header. Provides initial output value if specified.
 * validations: list of validations
 * transformations: list of transformations
 
-####Validations
+#### Validations
 
 * method: method name to be invoked from Validator class
 * kwargs (O): dict of keyword arguments to be passed to method
  
-####Transformations
+#### Transformations
 
 * method: method name to be invoked from Transformer class
 * kwargs (O): dict of keyword arguments to be passed to method
 * source_columns (O): List of column.input_keys which will be passed to the transformation method as a dict of {column_name: value}
 
-###Architecuture:
+### Architecuture:
 data_wrangler is designed to be a configurable and extensible Python ETL library. It has minimal external dependencies, 
 and relies heavily on standard library solutions for manipulation and coercion of data.
 The configuration DSL is lightweight, and the most complicated parts are offloaded to [str.format](https://docs.python.org/2/library/string.html#format-string-syntax) and

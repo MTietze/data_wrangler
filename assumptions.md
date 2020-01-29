@@ -1,4 +1,4 @@
-###Assumptions and Simplifications
+### Assumptions and Simplifications
 * The input CSV file spec is intended as a guide for what the file will look like, not an actual specification file that we'll be parsing.
 * This code will be run on a machine which has enough space to hold both the input and output files.
 * We aren't too concerned about auditing yet.
