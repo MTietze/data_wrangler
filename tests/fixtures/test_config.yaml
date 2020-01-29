@@ -1,0 +1,49 @@
+columns:
+  - output_key: OrderID
+    input_key: Order Number
+    transformations:
+      - method: modify_type
+        kwargs:
+          target_type: int
+    validations:
+      - method: regex
+        kwargs:
+          pattern: \d+
+  - output_key: OrderDate
+    transformations:
+      - method: format_string
+        kwargs:
+          template: '{Year}-{Month:0>2}-{Day:0>2}'
+        source_columns:
+           - Year
+           - Month
+           - Day
+  - output_key: ProductId
+    input_key: Product Number
+    validations:
+      - method: regex
+        kwargs:
+          pattern: '[A-Z0-9]+'
+  - output_key: ProductName
+    input_key: Product Name
+    validations:
+      - method: regex
+        kwargs:
+          pattern: '[A-Z]+'
+    transformations:
+      - method: modify_casing
+        kwargs:
+          casing: title
+  - output_key: Quantity
+    input_key: Count
+    transformations:
+      - method: modify_type
+        kwargs:
+          target_type: decimal
+  - output_key: Unit
+    transformations:
+      - method: format_string
+        kwargs:
+          template: kg
+input_path: tests/fixtures/test_csv.csv
+output_path: tests/fixtures/test_output.csv
