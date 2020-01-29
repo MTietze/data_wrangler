@@ -17,11 +17,10 @@ From within the data_wrangler directory, run
  
 `tox`
 
-If tox complains about missing py38, you may need to run it as `tox -e /path/to/python38`
+If tox complains about missing py38, you may need to run it as `tox -e /path/to/python38`.
 
 ### Running Data Wrangler as a Standalone
-Create a YAML file at data_wrangler/local_config.yaml. See for below syntax. 
-See tests/fixtures/test_config.yaml for an example.
+Create a YAML file at data_wrangler/local_config.yaml. For a quick test, copy over the contents from tests/fixtures/test_config.yaml.
 
 Activate the virtualenv that tox created:
 
@@ -29,10 +28,12 @@ Activate the virtualenv that tox created:
 
 run `python ./wrangler.py local_config.yaml`
 
+You should now see the generated CSV located at the output_path specified in your local_config.yaml.
+
 ### YAML Configuration
  All keys are required unless marked (O)
  
- See tests/fixtures/test_config.yaml for an example
+ See tests/fixtures/test_config.yaml for an example.
  
  The YAML file accepts the following top level keys:
  
@@ -41,7 +42,7 @@ run `python ./wrangler.py local_config.yaml`
  * columns: list of columns
  
  #### Columns
- Each column config represents a column in the generated csv file. They will appear in the same order as in the columns list.
+ Each column config represents a column in the generated CSV file. They will appear in the same order as in the columns list.
  ##### CAUTION: "__row_number" is a protected column name, and should not be used as an input or output key.
 * output_key: Output column header
 * input_key (O): Input column header. Provides initial output value if specified.
