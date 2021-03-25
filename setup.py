@@ -6,5 +6,5 @@ setup(
    description='Extensible and configurable data wrangler',
    author='Max Tietze',
    author_email='maxwelltietze@gmail.com',
-   install_requires=['PyYAML==5.3'],
+   install_requires=['PyYAML==5.4'],
 )
